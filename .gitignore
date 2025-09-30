@@ -29,3 +29,6 @@ bin/
 .DS_Store
 /.idea/encodings.xml
 /java_school.iml
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/vcs.xml
