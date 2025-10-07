@@ -32,3 +32,5 @@ bin/
 /.idea/misc.xml
 /.idea/modules.xml
 /.idea/vcs.xml
+/out1.txt
+/wetterdaten_feldberg.csv
