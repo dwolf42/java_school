@@ -1,4 +1,4 @@
-package school.streams;
+package school.streams.xanadu_copy;
 
 import java.io.*;
 
