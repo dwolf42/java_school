@@ -34,3 +34,5 @@ bin/
 /.idea/vcs.xml
 /out1.txt
 /wetterdaten_feldberg.csv
+/src/school/streams/text_saver/out1.txt
+/src/school/streams/wetterdaten_csv/wetterdaten_feldberg.csv
