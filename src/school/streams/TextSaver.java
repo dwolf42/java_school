@@ -7,27 +7,19 @@ import java.util.Scanner;
 
 public class TextSaver {
     public static void main(String[] args) throws IOException {
-        Scanner aScanner = new Scanner ( System.in );
+        Scanner aScanner = new Scanner(System.in);
 
+        String zeile;
 
-
-        String	zeile;
-
-        do {
-            zeile = aScanner.nextLine();
-            System.out.println(zeile);
-
-            try (FileWriter out1 = new FileWriter("out1.txt");
-                 PrintWriter out2 = new PrintWriter("out2.txt", true)) {
+        try (FileWriter out1 = new FileWriter("out1.txt")) {
+            do {
+                zeile = aScanner.nextLine();
+                System.out.println(zeile);
                 out1.write(zeile);
-                out2.write(zeile);
 
-            }
-
-
-        } while ( !zeile.equalsIgnoreCase("exit") );
-        System.out.println("Tschüss...");
-
+            } while (!zeile.equalsIgnoreCase("exit"));
+            System.out.println("Tschüss...");
+        }
     }
 }
 
