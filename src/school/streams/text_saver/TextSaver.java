@@ -1,8 +1,7 @@
-package school.streams;
+package school.streams.text_saver;
 
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class TextSaver {
@@ -11,7 +10,7 @@ public class TextSaver {
 
         String zeile;
 
-        try (FileWriter out1 = new FileWriter("out1.txt")) {
+        try (FileWriter out1 = new FileWriter("src/school/streams/text_saver/out1.txt")) {
             do {
                 zeile = aScanner.nextLine();
                 System.out.println(zeile);
