@@ -35,6 +35,7 @@ public class WetterdatenToCsv {
                     if (i == splitted.length - 1) {
                         out.write(splitted[i] + "\n");
                     } else {
+                        splitted[i] = splitted[i].replaceAll("\\.",",");
                         out.write(splitted[i] + ";");
                     }
                 }
