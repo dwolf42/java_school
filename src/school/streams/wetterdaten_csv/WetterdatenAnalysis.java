@@ -3,6 +3,7 @@ package school.streams.wetterdaten_csv;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class WetterdatenAnalysis {
     public static void main(String[] args) throws IOException {
@@ -20,27 +21,30 @@ public class WetterdatenAnalysis {
                 out.write(line + "\n");
             }
 
-            // Initialized where it's actually needed
             String[] splitted = null;
-            double[][] wValues = new double[34][8];
+            List<ArrayList> valueRows = new ArrayList<>();
 
-            int wValuesRow = 0;
             while ((line = in.readLine()) != null) {
                 splitted = line.split(" +");
+                ArrayList<Double> values = new ArrayList<Double>();
 
-                // Iterate over the read line which has been split to an array.
-                // If the index is parseable to Double, it gets written to the row.
-                for (int splittedIterator = 1; splittedIterator < splitted.length; splittedIterator++) {
+                // starts at 1 to skip date in first column of data
+                for (int i = 1; i < splitted.length; i++) {
                     try {
-                        wValues[wValuesRow][splittedIterator] = Double.parseDouble(splitted[splittedIterator]);
+                       values.add(Double.parseDouble(splitted[i]));
                     } catch (NumberFormatException e) {
                         // Nothing here
                     }
                 }
-                wValuesRow++;
 
+                valueRows.add(values);
             }
 
+           for (int i = 0; i < valueRows.size(); i++) {
+              for (int j = 0; j < valueRows.get(i))
+            valueRows.get(i).get(j);
+
+           }
             for (int i = 0; i < wValues.length; i++) {
                 for (int j = 0; j < wValues[i].length; j++) {
                     System.out.print(wValues[i][j] + " ");
