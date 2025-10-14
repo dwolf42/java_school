@@ -1,9 +1,9 @@
 
 import java.util.Calendar;
 
-public class Fahrstunde { 
+public class Fahrstunde {
 	
-	// TODO Erg‰nzen sie die Klasse Fahrstunde anhand der Aufgabenstellung
+	// TODO Erg√§nzen sie die Klasse Fahrstunde anhand der Aufgabenstellung
 	
 	// Hilfsfunktion zum bestimmen des aktuellen Datum als Zahl
 	// im Format yyyymmdd
