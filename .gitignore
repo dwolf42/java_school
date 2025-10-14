@@ -37,3 +37,4 @@ bin/
 /src/school/streams/text_saver/out1.txt
 /src/school/streams/wetterdaten_csv/wetterdaten_feldberg.csv
 /src/school/streams/wetterdaten_csv/wetterdaten_auswertung.txt
+/src/school/streams/wetterdaten_csv/wetterdaten_auswertung_lsg.txt
