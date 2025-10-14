@@ -5,7 +5,7 @@ import java.util.Arrays;
 
 public class WetterdatenToCsv {
     public static void main(String[] args) throws IOException {
-
+//        String csvfilename = filename.substring(0, filename.lastindexOf('.')) + ".csv";
         try (BufferedReader in = new BufferedReader(new FileReader("src/school/streams/wetterdaten_csv/wetterdaten_feldberg.txt"));
              PrintWriter out = new PrintWriter(new FileWriter("src/school/streams/wetterdaten_csv/wetterdaten_feldberg.csv"));) {
             String line = null;
@@ -22,6 +22,7 @@ public class WetterdatenToCsv {
                     temp = line;
                     continue;
                 }
+// out.print or out.println lets you write into the file sequentially
 
                 splitted = line.split(" +");
 
