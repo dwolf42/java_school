@@ -72,37 +72,19 @@ public class WetterdatenAnalysis {
 //            double maxCol = 0.0;
 //            double avgCol = 0.0;
 //            ArrayList<Double> toCountAmountOfValues = new ArrayList<Double>();
-          ArrayList<Double> minTmin = new ArrayList<Double>();
-          ArrayList<Double> maxTmit = new ArrayList<Double>();
-          ArrayList<Double> avgTmin = new ArrayList<Double>();
 
-          ArrayList<Double> minTmax = new ArrayList<Double>();
-          ArrayList<Double> maxTmax = new ArrayList<Double>();
-          ArrayList<Double> avgTmax = new ArrayList<Double>();
+            ArrayList<Double> tMin = new ArrayList<Double>();
+            ArrayList<Double> tMit = new ArrayList<Double>();
+            ArrayList<Double> tMax = new ArrayList<Double>();
+            ArrayList<Double> sGes = new ArrayList<Double>();
+            ArrayList<Double> rGes = new ArrayList<Double>();
+            ArrayList<Double> rFmit = new ArrayList<Double>();
+            ArrayList<Double> wMit = new ArrayList<Double>();
+            ArrayList<Double> wBmax = new ArrayList<Double>();
 
-          ArrayList<Double> minSges = new ArrayList<Double>();
-          ArrayList<Double> maxSges = new ArrayList<Double>();
-          ArrayList<Double> avgSges = new ArrayList<Double>();
-
-          ArrayList<Double> minRges = new ArrayList<Double>();
-          ArrayList<Double> maxRges = new ArrayList<Double>();
-          ArrayList<Double> avgRges = new ArrayList<Double>();
-
-          ArrayList<Double> minRFmit = new ArrayList<Double>();
-          ArrayList<Double> maxRFmit = new ArrayList<Double>();
-          ArrayList<Double> avgRFmit = new ArrayList<Double>();
-
-          ArrayList<Double> minWmit = new ArrayList<Double>();
-          ArrayList<Double> maxWmit = new ArrayList<Double>();
-          ArrayList<Double> avgWmit = new ArrayList<Double>();
-
-          ArrayList<Double> minWBmax = new ArrayList<Double>();
-          ArrayList<Double> maxWBmax = new ArrayList<Double>();
-          ArrayList<Double> avgWBmax = new ArrayList<Double>();
-
-
-
-
+            double[] mins = new double[8];
+            double[] avgs = new double[8];
+            double[] maxs = new double[8];
 
             // Iterate vertically column-wise, checking boundaries to avoid IndexOutOfBounds and handle missing elements
             for (int col = 0; col < maxCols; col++) {
