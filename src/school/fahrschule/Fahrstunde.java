@@ -15,7 +15,6 @@ public abstract class Fahrstunde {
         }
         this.datum = datum;
         this.fastLane = false;
-
     }
 
     public Fahrstunde(int anzahl) {
@@ -23,26 +22,23 @@ public abstract class Fahrstunde {
     }
 
     public void ausgeben() {
-        System.out.print("Datum: " + datum + ", " + "Typ: " + getTypName() + ", " + "Anzahl: " + anzahl);
-        if (fastLane) {
-            System.out.print(", " + "fast lane");
+        System.out.print(datum + ": " + getTypName() + "-Fahrt " + "Stunden " + anzahl);
+        if (this.fastLane) {
+            System.out.print(" " + "fast lane");
         }
         System.out.println();
     }
 
     public abstract int getTyp();
-
     public abstract String getTypName();
-
     public abstract double berechnePreis();
 
     public void setFastLane() {
         this.fastLane = true;
-
     }
 
     public boolean isFastLane() {
-        return fastLane;
+        return this.fastLane;
     }
 
     // Hilfsfunktion zum bestimmen des aktuellen Datum als Zahl

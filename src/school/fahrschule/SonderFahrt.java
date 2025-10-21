@@ -1,15 +1,15 @@
 package school.fahrschule;
 
-public class StandardFahrt extends Fahrstunde {
-    public static final int TYP = 0;
-    public static final String TYP_NAME = "Standard";
-    private double preis = 27.0;
+public class SonderFahrt extends Fahrstunde{
+    public static int TYP = 1;
+    public static String TYP_NAME = "Sonder";
+    private double preis = 31.0;
 
-    public StandardFahrt(long datum, int anzahl) {
+    public SonderFahrt(long datum, int anzahl) {
         super(datum, anzahl);
     }
 
-    public StandardFahrt(int anzahl) {
+    public SonderFahrt(int anzahl) {
         super(anzahl);
     }
 
@@ -26,7 +26,7 @@ public class StandardFahrt extends Fahrstunde {
     @Override
     public double berechnePreis() {
         if (super.isFastLane()) {
-            return super.anzahl * 50.0;
+            return super.anzahl * (preis * 1.90);
         }
         return super.anzahl * preis;
     }
