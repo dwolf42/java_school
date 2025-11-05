@@ -14,10 +14,10 @@ public class FahrSchueler {
     }
 
     public boolean eintragen(Fahrstunde neu) {
-
+        return false;
     }
 
-    public ausgabenStatus() {
+    public void ausgabenStatus() {
 
     }
 
