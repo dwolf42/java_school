@@ -21,20 +21,15 @@ public class Spiel77 extends Frame {
 	class ZahlenGenerator extends Thread {
 		final int indexOfLabel;
 		boolean isGenerating = true;
+        int startNumber;
 
 		public ZahlenGenerator(int indexOfLabel) {
 			this.indexOfLabel = indexOfLabel;
+            startNumber = new Random().nextInt(10);
 		}
 
 		public void run() {
-			/* index label
-				über Konstruktor den Index rein gegben
-				paar ms schlafen, dann incremet
-				setText() um Text bei Label zu setzen
-				// random.nextInt(100 - 20 + 1) + 100
-			 */
 			try {
-				int startNumber = new Random().nextInt(10);
 				while (isGenerating) {
 					if (startNumber % 10 == 0) {
 						startNumber = new Random().nextInt(10);
@@ -53,7 +48,6 @@ public class Spiel77 extends Frame {
 		super("Spiel 77");
 
 		zahlLbl = new Label[7];
-
 		// ZahlenGenerator Thread Objekte
 		zahlenGeneratorThreadObjekte = new ZahlenGenerator[7];
 
