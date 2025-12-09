@@ -15,7 +15,7 @@ public class Fuehrerschein {
 		fahrschueler.eintragen( new StandardFahrt(20180420, 2) );
 		fahrschueler.eintragen( new StandardFahrt(20180425, 2) );
 
-//		fahrschueler.ausgebenStatus();
+	//	fahrschueler.ausgebenStatus();
 
 
 
@@ -53,7 +53,7 @@ public class Fuehrerschein {
 		fahrschueler.eintragen( new StandardFahrt(2) );
 		fahrschueler.eintragen( new SonderFahrt(1) );
 		
-//		fahrschueler.ausgebenStatus();
+	//	fahrschueler.ausgebenStatus();
 
 
 
