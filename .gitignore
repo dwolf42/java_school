@@ -38,3 +38,4 @@ bin/
 /src/school/streams/wetterdaten_csv/wetterdaten_feldberg.csv
 /src/school/streams/wetterdaten_csv/wetterdaten_auswertung.txt
 /src/school/streams/wetterdaten_csv/wetterdaten_auswertung_lsg.txt
+/.idea/inspectionProfiles/Project_Default.xml
