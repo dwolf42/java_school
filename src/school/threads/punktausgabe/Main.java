@@ -19,6 +19,11 @@ class Main {
 		while (true) {
 			eingabe = scanner.nextLine();
 			System.out.println(eingabe);
+
+			if (eingabe.equalsIgnoreCase("q")) {
+				t1.interrupt();
+				break;
+			}
 		}
 	}
 
