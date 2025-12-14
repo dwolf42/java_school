@@ -21,11 +21,11 @@ public class Spiel77 extends Frame {
 	class ZahlenGenerator extends Thread {
 		final int indexOfLabel;
 		boolean isGenerating = true;
-        int startNumber;
+		int startNumber;
 
 		public ZahlenGenerator(int indexOfLabel) {
 			this.indexOfLabel = indexOfLabel;
-            startNumber = new Random().nextInt(10);
+			startNumber = new Random().nextInt(10);
 		}
 
 		public void run() {
@@ -35,7 +35,7 @@ public class Spiel77 extends Frame {
 						startNumber = new Random().nextInt(10);
 					}
 					zahlLbl[indexOfLabel].setText("" + startNumber);
-					Thread.sleep(new Random().nextInt(100 - 20 + 1) + 20);
+					Thread.sleep(new Random().nextInt(100 - SLEEP + 1) + SLEEP);
 					startNumber++;
 				}
 			} catch (InterruptedException e) {
@@ -89,6 +89,12 @@ public class Spiel77 extends Frame {
 				// Zahlenermittlung jetzt beginnt, d.h. die Threads
 				// zeitversetzt ihre Zahl bestimmen und sich dann 
 				// beenden.
+				for (int i = 0; i < zahlenGeneratorThreadObjekte.length; i++) {
+					try {
+						Thread.currentThread().sleep(TIME);
+						zahlenGeneratorThreadObjekte[i].interrupt();
+					} catch (InterruptedException ex) {}
+				}
 			}
 		});
 
