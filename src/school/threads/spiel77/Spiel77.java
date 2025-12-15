@@ -34,7 +34,8 @@ public class Spiel77 extends Frame {
 					if (startNumber % 10 == 0) {
 						startNumber = new Random().nextInt(10);
 					}
-					zahlLbl[indexOfLabel].setText("" + startNumber);
+					zahlLbl[indexOfLabel].setText(String.valueOf(startNumber));
+					zahlLbl[indexOfLabel].setForeground(Color.red);
 					Thread.sleep(new Random().nextInt(100 - SLEEP + 1) + SLEEP);
 					startNumber++;
 				}
@@ -71,6 +72,8 @@ public class Spiel77 extends Frame {
 		add(buttons, BorderLayout.SOUTH);
 
 		pack();
+
+		// Start Button
 		btnStart.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -79,8 +82,12 @@ public class Spiel77 extends Frame {
 					zahlenGeneratorThreadObjekte[i] = new ZahlenGenerator(i);
 					zahlenGeneratorThreadObjekte[i].start();
 				}
+				btnStart.setEnabled(false);
+				btnStop.setEnabled(true);
 			}
 		});
+
+		// Stop Button
 		btnStop.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -89,12 +96,16 @@ public class Spiel77 extends Frame {
 				// Zahlenermittlung jetzt beginnt, d.h. die Threads
 				// zeitversetzt ihre Zahl bestimmen und sich dann 
 				// beenden.
+				btnStop.setEnabled(false);
 				for (int i = 0; i < zahlenGeneratorThreadObjekte.length; i++) {
 					try {
 						Thread.currentThread().sleep(TIME);
 						zahlenGeneratorThreadObjekte[i].interrupt();
-					} catch (InterruptedException ex) {}
+					 	zahlLbl[i].setForeground(Color.BLUE);
+					} catch (InterruptedException ex) {
+					}
 				}
+				btnStart.setEnabled(true);
 			}
 		});
 
@@ -104,7 +115,12 @@ public class Spiel77 extends Frame {
 			public void windowClosing(WindowEvent e) {
 				// TODO 
 				// Allen laufenden Threads auffordern, dass sie sich (baldmöglichst) beenden.
-
+			// FIXME:
+			if (zahlenGeneratorThreadObjekte[0].equals(null)) {
+				for (int i = 0; i < zahlenGeneratorThreadObjekte.length; i++) {
+					zahlenGeneratorThreadObjekte[i].interrupt();
+				}
+			}
 				dispose();
 			}
 		});
