@@ -128,9 +128,8 @@ public class WetterClient extends Frame {
 			// Der Buffered Reader liest Strings, braucht daher etwas, um den Stream vom Server zu lesen, also new InputStreamReader
 			in = new BufferedReader(new InputStreamReader(toServer.getInputStream())); // kommt vom Server
 			// Der PrintWriter schreibt auf den Output vom Socket
-			out = new PrintWriter(toServer.getOutputStream(), true);
-			logger = new PrintWriter(toServer.getOutputStream(), true);
 			out = new PrintWriter(toServer.getOutputStream(), true); // schreibe ich an den Sever
+			logger = new PrintWriter(toServer.getOutputStream(), true); // TODO: Logger überarbeiten
 			return true;
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -144,8 +143,10 @@ public class WetterClient extends Frame {
 		// - Senden <INIT> an Server
 		// - enpfang der Init-Werte mit receiveInitValues
 		updateEnd();
+		status.setText("Neu initialisieren");
 		out.println("<INIT>");
 		receiveInitValues();
+		status.setText("Normal Modus");
 	}
 
 	public void receiveInitValues() {
@@ -177,6 +178,7 @@ public class WetterClient extends Frame {
 		// muss das Kommando "<UPDATE>" als eine Textzeile an den Server
 		// gesendet werden.
 		if (updateReceiver == null) {
+			status.setText("Update Modus");
 			updateReceiver = new WetterUpdate();
 			updateReceiver.start();
 			out.println("<UPDATE>");
