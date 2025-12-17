@@ -159,10 +159,10 @@ public class WetterClient extends Frame {
 		String line;
 		String[] splitted;
 		try {
-			while ((line = in.readLine()) != null
-				&& !line.equals("<END_INIT>")) {
+			while ((line = in.readLine()) != null &&
+				!line.equals("<END_INIT>")) {
 				splitted = line.split(":");
-				regionLabelMap.get(splitted[0].trim()).setText(splitted[1].trim());
+				regionLabelMap.get(splitted[0].trim()).setText(splitted[1].trim() + "°C");
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -192,7 +192,12 @@ public class WetterClient extends Frame {
 		// Senden Kommando "<END UPDATE>" an Server.
 		// Der bestehende Update-Thread muss benachrichtigt werden, so dass er
 		// sich sauber selbst beendet.
-		updateReceiver = null;
+		if (updateReceiver != null) {
+			status.setText("Normal Modus");
+			out.println("<END_UPDATE>");
+			updateReceiver.interrupt();
+			updateReceiver = null;
+		}
 	}
 
 	public void exit() {
