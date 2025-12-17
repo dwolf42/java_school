@@ -38,13 +38,15 @@ public class WetterClient extends Frame {
 			try {
 				while (!currentThread().isInterrupted() &&
 					(line = in.readLine()) != null &&
-					!line.equals("<END_INIT>")) {
+					!line.equals("<END_INIT>") &&
+					!line.equals("<END_UPDATE>")) {
 					splitted = line.split(":");
-					regionLabelMap.get(splitted[0].trim()).setText(splitted[1].trim());
+					regionLabelMap.get(splitted[0].trim()).setText(splitted[1].trim() + "°C");
 				}
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
+			System.out.println("WetterUpdate-Thread endet");
 		}
 	}
 
