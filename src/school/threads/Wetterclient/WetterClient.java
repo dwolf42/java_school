@@ -202,15 +202,25 @@ public class WetterClient extends Frame {
 
 	public void exit() {
 		// Abmelden vom Server, ggf. Update-Modus vorher beenden
-		// lokale Aufraeumarbeiten
+		// lokale Aufraeumarbeiten == alle Ressourcen schließen, also:
 		updateEnd();
+		try {
+			if (toServer != null) {
+				out.println("<EXIT>"); // EXIT an den Server senden
+				out.close(); // PrintWriter schließen
+				in.close(); // BufferedReader schließen
+				toServer.close(); // Server schließen
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public static void main(String[] args) {
 
 		// TODO zum Server passenden Hostname, Portnummer eintragen
 		String hostname = "localhost";
-		int portnummer = 7077;
+		int portnummer = 45678;
 
 		if (args.length == 2) {
 			hostname = args[0];
