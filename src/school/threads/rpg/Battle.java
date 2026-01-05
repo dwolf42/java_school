@@ -15,16 +15,16 @@ class Battle {
 		this.monsterHp = monsterHp;
 	}
 
-	public void start() {
-		StatusPrinter statusThread = new StatusPrinter(2000);
+	public void fight() {
+		StatusPrinter statusThread = new StatusPrinter(1500);
 		Thread t1 = new Thread(statusThread);
 		t1.start();
 
 		Scanner scanner = new Scanner(System.in);
 		String input;
-		boolean hasStopped = false;
-		while (!hasStopped) {
-			input = scanner.nextLine();
+		while (!Thread.currentThread().isInterrupted()) {
+			System.out.println("Enter (a)ttack or (q)uit:");
+			input = scanner.nextLine().trim();
 			if (input.equalsIgnoreCase("a")) {
 				// Hero attacks monster (reduce monster's HP)
 			} else if (input.equalsIgnoreCase("q") ||
@@ -32,7 +32,7 @@ class Battle {
 					monsterHp <= 0) {
 				// Terminates Thread gracefully => in Thread there must run a !isInterrupted
 
-				hasStopped = true;
+				Thread.currentThread().interrupt();
 			} else {
 				System.err.println("Quack!");
 			}
@@ -52,8 +52,8 @@ class Battle {
 					Battle.this.monsterHp > 0) {
 				try {
 					Thread.sleep(intervalMillis);
-					System.out.print(Battle.this.heroName + ": " + Battle.this.heroHp);
-					System.err.print(Battle.this.monsterName + ": " + Battle.this.monsterHp);
+					System.out.print(Battle.this.heroName + ": " + Battle.this.heroHp + " vs. ");
+					System.err.print(Battle.this.monsterName + ": " + Battle.this.monsterHp + "\n");
 				} catch (InterruptedException e) {
 					System.out.println("Battle was interrupted by some weird Kreuz-Otters");
 				}
