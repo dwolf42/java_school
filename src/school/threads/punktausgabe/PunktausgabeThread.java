@@ -11,7 +11,7 @@ class PunktausgabeThread extends Thread {
 
 	public void run() {
 			try {
-				while (!currentThread().isInterrupted()) {
+				while (!Thread.currentThread().isInterrupted()) {
 					Thread.sleep(warteZeit);
 					System.out.println(text);
 				}

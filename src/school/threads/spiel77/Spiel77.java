@@ -99,7 +99,7 @@ public class Spiel77 extends Frame {
 				btnStop.setEnabled(false);
 				for (int i = 0; i < zahlenGeneratorThreadObjekte.length; i++) {
 					try {
-						Thread.currentThread().sleep(TIME);
+						Thread.sleep(TIME);
 						zahlenGeneratorThreadObjekte[i].interrupt();
 					 	zahlLbl[i].setForeground(Color.BLUE);
 					} catch (InterruptedException ex) {
