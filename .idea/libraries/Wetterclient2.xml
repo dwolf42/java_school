@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="Wetterclient2">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/src/school/threads/Wetterclient/wetterdienst1.8.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/school/threads/Wetterclient/wetterdienst17.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
