@@ -125,7 +125,8 @@ public class WetterClient extends Frame {
 
 		try {
 			toServer = new Socket(host, portnummer);
-			// Der Buffered Reader liest Strings, braucht daher etwas, um den Stream vom Server zu lesen, also new InputStreamReader
+			// Der Buffered Reader liest Strings, braucht daher etwas,
+			// um den Stream vom Server zu lesen, also new InputStreamReader
 			in = new BufferedReader(new InputStreamReader(toServer.getInputStream())); // kommt vom Server
 			// Der PrintWriter schreibt auf den Output vom Socket
 			out = new PrintWriter(toServer.getOutputStream(), true); // schreibe ich an den Sever
