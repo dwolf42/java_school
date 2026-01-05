@@ -101,7 +101,7 @@ public class Spiel77 extends Frame {
 					try {
 						Thread.sleep(TIME);
 						zahlenGeneratorThreadObjekte[i].interrupt();
-					 	zahlLbl[i].setForeground(Color.BLUE);
+						zahlLbl[i].setForeground(Color.BLUE);
 					} catch (InterruptedException ex) {
 					}
 				}
@@ -115,12 +115,12 @@ public class Spiel77 extends Frame {
 			public void windowClosing(WindowEvent e) {
 				// TODO 
 				// Allen laufenden Threads auffordern, dass sie sich (baldmöglichst) beenden.
-			// FIXME:
-			if (zahlenGeneratorThreadObjekte[0].equals(null)) {
-				for (int i = 0; i < zahlenGeneratorThreadObjekte.length; i++) {
-					zahlenGeneratorThreadObjekte[i].interrupt();
+				// FIXME:
+				if (zahlenGeneratorThreadObjekte[0] != null) {
+					for (int i = 0; i < zahlenGeneratorThreadObjekte.length; i++) {
+						zahlenGeneratorThreadObjekte[i].interrupt();
+					}
 				}
-			}
 				dispose();
 			}
 		});
