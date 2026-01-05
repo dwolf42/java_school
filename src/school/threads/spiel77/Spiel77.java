@@ -20,19 +20,20 @@ public class Spiel77 extends Frame {
 
 	class ZahlenGenerator extends Thread {
 		final int indexOfLabel;
-		boolean isGenerating = true;
 		int startNumber;
 
 		public ZahlenGenerator(int indexOfLabel) {
 			this.indexOfLabel = indexOfLabel;
-			startNumber = new Random().nextInt(10);
+			this.startNumber = new Random().nextInt(9);
 		}
 
 		public void run() {
 			try {
-				while (isGenerating) {
+				while (!Thread.currentThread().isInterrupted()) {
+					// Wird gebraucht, da startNumber hochgezählt wird und
+					// sobald sie 10 entspricht neu generiert werden muss
 					if (startNumber % 10 == 0) {
-						startNumber = new Random().nextInt(10);
+						startNumber = new Random().nextInt(9);
 					}
 					zahlLbl[indexOfLabel].setText(String.valueOf(startNumber));
 					zahlLbl[indexOfLabel].setForeground(Color.red);
