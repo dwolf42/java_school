@@ -3,84 +3,60 @@ package school.threads.info_ticker;
 import java.awt.*;
 import java.awt.List;
 import java.awt.event.*;
-import java.util.*;
 import java.io.*;
 import java.net.*;
+import java.util.ArrayList;
 
 public class InfoClient extends Frame {
-
-	/*
-	Was will der jetzt eigentlich von mir?
-
-Also, der Server stellt den Clients Infos zu verschiedenen Themen (Topics) zur
-Verfügung, die er immer aktualisiert.
-Heiz den Server an und gib ne Portnummer ein, dann wartet der Server auf
-eingehende Verbindungen.
-
-Dem Server kann ich mit Textkommands, die ich ihm schicken muss, angesprochen werden:
-z. B. <LOGIN>:name usw.
-
-Ich soll den Client implementieren, anhand des Klassendiagramms und den Anforderungen
-
-Client erbt von Frame
--> hat folgende Attribute:
-Socket object: toServer
-BufferedReader: in - für Zeug, was vom Server kommt
-PrintWriter: out - für Zeug, was an Server geht
-AWT-List: topicList - für die Topics
-
--> hat folgende Methoden
-InfoCliet(host:String,port:int,code:String)
-Ich muss Kommunikationsobjekte und ne HashMap erzeugen
-
-
-
-send2Server(line:String) -> sende den String an den Server - dah
-
-exit() -> joar, alles abbauen und so.
-Beendet den receiver.Thread (Thread.currentThread.isInterrupted())
-Sendet Logout-Kommando an Server, schließt alle lokalen Ressourcen.
-
-----
-Receiver-Klasse, erbt von Thread: receiver, 1 Objekt, muss ich implementieren
-Ist eine Komposition, also hat keine Existenz ohne den Client.
-
--> hat folgende Attribute:
-init: boolean - ist init aktiv?
-ein Attribut zur Speicherung aller Keys eines Topics (Map?)
-
--> hat folgende Methoden:
-run()
-empfängt asynchron alle Nachrichten vom Server
-
-Damit empfange ich nach Initialisierung alle Rückantworten des Servers, verarbeite
-sie und zeig sie in der GUI an.
-Während dem INIT, werden alle Infos in die topicList hinzugefügt und mir
-zusätzlich zu jedem Schlüssel den Indexwert der List-Komponente merken.
-
-Neue Nachrichten nach <END_INIT> ersetzen dann das jeweilige Item in der
-List mit dem aktuellen neuen Wert.
-
-Beim Start einer INIT-Phase wird die topicList neu initialisiert und die
-gemerkten Indexwerte verworfen.
-
-Der Thread muss sich beenden, wenns Lesefehler gibt
-    */
-
 	private Label status;        // Statuszeile
 	private TextField topic;
 
 	private Socket toServer = null;
-	private BufferedReader in = null;
-	private PrintWriter out = null;
+	private BufferedReader input = null;
+	private PrintWriter output = null;
 	private PrintWriter logger = null;
 	private List topicList;        // Liste fuer empfangene Infos
+	private Receiver receiver;
 
 	// TODO weitere Attribute
 
 	// TODO innere Receiver-Thread-Klasse
 
-	public InfoClient(String hostname, int portnummer, String code) {
+	class Receiver extends Thread {
+		private boolean init = true;
+		private ArrayList<String> keys = new ArrayList<>();
+
+		public void run() {
+			while (!this.isInterrupted()) {
+				try {
+					String line;
+					if ((line = input.readLine()) != null) {
+						if (line.equals("<START_INIT>")) {
+							topicList.removeAll();
+							keys.clear();
+							init = false;
+						} else {
+							String[] words = line.split(":");
+							if (init) {
+								keys.add(words[0]);
+								topicList.add(line);
+							} else {
+								int index = keys.indexOf(words[0]);
+								topicList.replaceItem(line, index);
+							}
+						}
+					} else {
+						Thread.currentThread().interrupt();
+					}
+				} catch (IOException e) {
+					throw new RuntimeException(e);
+				}
+			}
+			receiver = null;
+		}
+	}
+
+	public InfoClient(String hostIP, int portnummer, String code) {
 		super("InfoClient");
 		status = new Label("Status");
 		add(status, BorderLayout.SOUTH);
@@ -101,7 +77,7 @@ Der Thread muss sich beenden, wenns Lesefehler gibt
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("eingegebens Topic: " + topic.getText());
 				// TODO senden <INIT>-Befehl mit Topic
-
+				send2Server("<INIT>" + topic.getText());
 			}
 		});
 
@@ -117,7 +93,7 @@ Der Thread muss sich beenden, wenns Lesefehler gibt
 			}
 		});
 
-		if (connect(hostname, portnummer, code)) {
+		if (connect(hostIP, portnummer, code)) {
 			status.setText("Verbindung erfolgreich");
 		} else {
 			status.setText("Verbindung fehlgeschlagen");
@@ -126,7 +102,7 @@ Der Thread muss sich beenden, wenns Lesefehler gibt
 		setVisible(true);
 	}
 
-	public boolean connect(String hostname, int portnummer, String username) {
+	public boolean connect(String hostIP, int portnummer, String username) {
 		// TODO
 		// - Erzeugen von Socket, BufferedReader, PrintWriter, PrintWriter zu Logging
 		// - Senden Login an Server
@@ -143,17 +119,27 @@ Wenn das alles klappt, geben wir true zurück, sonst false.
 	 */
 
 		try {
-			toServer = new Socket(hostname, portnummer);
-
-		} catch (IOException e) {
-
+			toServer = new Socket(hostIP, portnummer);
+			input = new BufferedReader(new InputStreamReader(toServer.getInputStream()));
+			output = new PrintWriter(toServer.getOutputStream(), true);
+			send2Server("<LOGIN>:" + username);
+			if (input.readLine().contains("<END_LOGIN>:OK")) {
+				receiver = new Receiver();
+				receiver.start();
+				return true;
+			}
+			toServer.close();
+			return false;
+		} catch (
+			IOException e) {
+			System.out.println(e.getMessage());
+			return false;
 		}
-
-		return false;
 	}
 
 	public void send2Server(String line) {
 		// TODO Zeile an Server senden
+		this.output.println(line);
 	}
 
 	public void exit() {
@@ -161,14 +147,20 @@ Wenn das alles klappt, geben wir true zurück, sonst false.
 		// Beenden Receiver-Thread, falls noch aktiv
 		// Abmelden beim Server
 		// Ressourcen schliessen
-
+		try {
+			toServer.close();
+			input.close();
+			output.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public static void main(String[] args) {
-		String hostname = "localhost";        // TODO eintragen der IP-Adresse
+		String hostIP = "127.0.0.1";        // TODO eintragen der IP-Adresse
 		int portnummer = 7077;
 		String username = "Radieschen";            // TODO eintragen des Anmeldenamens
 
-		new InfoClient(hostname, portnummer, username);
+		new InfoClient(hostIP, portnummer, username);
 	}
 }
