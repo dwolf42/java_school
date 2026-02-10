@@ -1,0 +1,373 @@
+{"stopplaces": [  {"groupmembers": ["8079041","8089390","8000191"],
+	              "names": {"de": { "namelong": "karlsruhe hbf", "speechlong": "karlsruhe hauptbahnhof", "speechshort": "karlsruhe hbf" }},
+                  "availabletransports": [ "city_train", "inter_regional_train", "intercity_train", "bus", "regional_train", "tram", "high_speed_train"],
+                  "position": { "latitude": 48.993515, "longitude": 8.402181},
+    	          "evanumber": "8000191",
+                  "stationid": "3107"},
+  {
+    "groupMembers": ["8003184"],
+    "names": {"DE": {
+      "nameLong": "Karlsruhe-Durlach",
+      "speechLong": "Karlsruhe-Durlach",
+      "nameLocal": "KA Durlach",
+      "speechShort": "Karlsruhe-Durlach"
+    }},
+    "availableTransports": [
+      "CITY_TRAIN",
+      "INTERCITY_TRAIN",
+      "BUS",
+      "REGIONAL_TRAIN",
+      "TRAM",
+      "HIGH_SPEED_TRAIN"
+    ],
+    "position": {
+      "latitude": 49.002328,
+      "longitude": 8.462822
+    },
+    "evaNumber": "8003184",
+    "stationID": "3109"
+  },
+  {
+    "groupMembers": ["8003183"],
+    "names": {"DE": {
+      "nameLong": "Karlsruhe West",
+      "speechLong": "Karlsruhe West",
+      "nameLocal": "KA West",
+      "speechShort": "Karlsruhe West"
+    }},
+    "availableTransports": [
+      "CITY_TRAIN",
+      "BUS",
+      "REGIONAL_TRAIN"
+    ],
+    "position": {
+      "latitude": 49.002159,
+      "longitude": 8.362951
+    },
+    "evaNumber": "8003183",
+    "stationID": "3108"
+  },
+  {
+    "groupMembers": ["8003186"],
+    "names": {"DE": {
+      "nameLong": "Karlsruhe-Knielingen",
+      "speechLong": "Karlsruhe-Knielingen",
+      "nameLocal": "KA Knielingen",
+      "speechShort": "Karlsruhe-Knielingen"
+    }},
+    "availableTransports": [
+      "CITY_TRAIN",
+      "REGIONAL_TRAIN"
+    ],
+    "position": {
+      "latitude": 49.026695,
+      "longitude": 8.341171
+    },
+    "evaNumber": "8003186",
+    "stationID": "3111"
+  },
+  {
+    "groupMembers": ["8003187"],
+    "names": {"DE": {
+      "nameLong": "Karlsruhe-Mühlburg",
+      "speechLong": "Karlsruhe-Mühlburg",
+      "speechShort": "Karlsruhe-Mühlburg"
+    }},
+    "availableTransports": [
+      "CITY_TRAIN",
+      "BUS",
+      "REGIONAL_TRAIN"
+    ],
+    "position": {
+      "latitude": 49.014557,
+      "longitude": 8.351126
+    },
+    "evaNumber": "8003187",
+    "stationID": "3112"
+  },
+  {
+    "groupMembers": ["8003185"],
+    "names": {"DE": {
+      "nameLong": "Karlsruhe-Hagsfeld",
+      "speechLong": "Karlsruhe-Hagsfeld",
+      "speechShort": "Karlsruhe-Hagsfeld"
+    }},
+    "availableTransports": [
+      "CITY_TRAIN",
+      "REGIONAL_TRAIN"
+    ],
+    "position": {
+      "latitude": 49.025938,
+      "longitude": 8.453645
+    },
+    "evaNumber": "8003185",
+    "stationID": "3110"
+  },
+  {
+    "groupMembers": [],
+    "names": {"DE": {"nameLong": "Gottesauer Platz/BGV, Karlsruhe"}},
+    "availableTransports": [
+      "CITY_TRAIN",
+      "TRAM"
+    ],
+    "position": {
+      "latitude": 49.007606,
+      "longitude": 8.424562
+    },
+    "evaNumber": "723616"
+  },
+  {
+    "groupMembers": [],
+    "names": {"DE": {
+      "nameLong": "Karlsruhe Entenfang",
+      "speechLong": "Karlsruhe Entenfang",
+      "speechShort": "Karlsruhe Entenfang"
+    }},
+    "availableTransports": [
+      "CITY_TRAIN",
+      "TRAM"
+    ],
+    "position": {
+      "latitude": 49.010666,
+      "longitude": 8.359504
+    },
+    "evaNumber": "8079126"
+  },
+  {
+    "groupMembers": [],
+    "names": {"DE": {"nameLong": "Yorckstraße, Karlsruhe"}},
+    "availableTransports": [
+      "CITY_TRAIN",
+      "TRAM"
+    ],
+    "position": {
+      "latitude": 49.01087,
+      "longitude": 8.376197
+    },
+    "evaNumber": "372041"
+  },
+  {
+    "groupMembers": [],
+    "names": {"DE": {
+      "nameLong": "Karlsruhe Albtalbahnhof",
+      "speechLong": "Karlsruhe Albtalbahnhof",
+      "nameShort": "Karlsruhe Albtalbf",
+      "speechShort": "Karlsruhe Albtalbahnhof"
+    }},
+    "availableTransports": ["CITY_TRAIN"],
+    "position": {
+      "latitude": 48.993707,
+      "longitude": 8.39611
+    },
+    "evaNumber": "8079045"
+  },
+  {
+    "groupMembers": [],
+    "names": {"DE": {"nameLong": "Mühlburger Tor, Karlsruhe"}},
+    "availableTransports": [
+      "CITY_TRAIN",
+      "TRAM"
+    ],
+    "position": {
+      "latitude": 49.010516,
+      "longitude": 8.383644
+    },
+    "evaNumber": "374649"
+  },
+  {
+    "groupMembers": [],
+    "names": {"DE": {
+      "nameLong": "Karlsruhe Mühlburger Tor",
+      "speechLong": "Karlsruhe Mühlburger Tor",
+      "nameShort": "Karlsruhe Mühlb. Tor",
+      "speechShort": "Karlsruhe Mühlburger Tor"
+    }},
+    "availableTransports": [
+      "CITY_TRAIN",
+      "TRAM"
+    ],
+    "position": {
+      "latitude": 49.01064,
+      "longitude": 8.382773
+    },
+    "evaNumber": "8079144"
+  },
+  {
+    "groupMembers": [],
+    "names": {"DE": {"nameLong": "Philippstraße, Karlsruhe"}},
+    "availableTransports": [
+      "CITY_TRAIN",
+      "TRAM"
+    ],
+    "position": {
+      "latitude": 49.011371,
+      "longitude": 8.364878
+    },
+    "evaNumber": "372045"
+  },
+  {
+    "groupMembers": [],
+    "names": {"DE": {"nameLong": "Händelstraße, Karlsruhe"}},
+    "availableTransports": [
+      "CITY_TRAIN",
+      "TRAM"
+    ],
+    "position": {
+      "latitude": 49.011196,
+      "longitude": 8.369303
+    },
+    "evaNumber": "377044"
+  },
+  {
+    "groupMembers": [],
+    "names": {"DE": {
+      "nameLong": "Tullastraße/Alter Schlachthof, Karlsruhe",
+      "speechLong": "Karlsruhe Tullastraße",
+      "speechShort": "KA - Tullastr."
+    }},
+    "availableTransports": [
+      "CITY_TRAIN",
+      "TRAM"
+    ],
+    "position": {
+      "latitude": 49.007329,
+      "longitude": 8.431578
+    },
+    "evaNumber": "364807"
+  },
+  {
+    "groupMembers": [],
+    "names": {"DE": {"nameLong": "Marktplatz (Kaiserstraße U), Karlsruhe"}},
+    "availableTransports": [
+      "CITY_TRAIN",
+      "TRAM"
+    ],
+    "position": {
+      "latitude": 49.009733,
+      "longitude": 8.401673
+    },
+    "evaNumber": "121003"
+  },
+  {
+    "groupMembers": [],
+    "names": {"DE": {"nameLong": "Europaplatz/Postgalerie (U), Karlsruhe"}},
+    "availableTransports": [
+      "CITY_TRAIN",
+      "TRAM"
+    ],
+    "position": {
+      "latitude": 49.010092,
+      "longitude": 8.393705
+    },
+    "evaNumber": "720619"
+  },
+  {
+    "groupMembers": [],
+    "names": {"DE": {"nameLong": "Händelstraße, Karlsruhe"}},
+    "availableTransports": [
+      "CITY_TRAIN",
+      "TRAM"
+    ],
+    "position": {
+      "latitude": 49.011247,
+      "longitude": 8.369307
+    },
+    "evaNumber": "721381"
+  },
+  {
+    "groupMembers": [],
+    "names": {"DE": {"nameLong": "Philippstraße, Karlsruhe"}},
+    "availableTransports": [
+      "CITY_TRAIN",
+      "TRAM"
+    ],
+    "position": {
+      "latitude": 49.011465,
+      "longitude": 8.364169
+    },
+    "evaNumber": "721426"
+  },
+  {
+    "groupMembers": [],
+    "names": {"DE": {"nameLong": "Poststraße, Karlsruhe"}},
+    "availableTransports": [
+      "CITY_TRAIN",
+      "TRAM"
+    ],
+    "position": {
+      "latitude": 48.995224,
+      "longitude": 8.403982
+    },
+    "evaNumber": "723870"
+  },
+  {
+    "groupMembers": [],
+    "names": {"DE": {"nameLong": "Yorckstraße, Karlsruhe"}},
+    "availableTransports": [
+      "CITY_TRAIN",
+      "TRAM"
+    ],
+    "position": {
+      "latitude": 49.010976,
+      "longitude": 8.375353
+    },
+    "evaNumber": "721470"
+  },
+  {
+    "groupMembers": [],
+    "names": {"DE": {"nameLong": "Augartenstraße, Karlsruhe"}},
+    "availableTransports": [
+      "CITY_TRAIN",
+      "BUS",
+      "TRAM"
+    ],
+    "position": {
+      "latitude": 48.998465,
+      "longitude": 8.403677
+    },
+    "evaNumber": "721323"
+  },
+  {
+    "groupMembers": [],
+    "names": {"DE": {
+      "nameLong": "Tullastraße/Alter Schlachthof, Karlsruhe",
+      "speechLong": "Tullastraße/Alter Schlachthof",
+      "speechShort": "Karlsruhe Tullastraße"
+    }},
+    "availableTransports": [
+      "CITY_TRAIN",
+      "TRAM"
+    ],
+    "position": {
+      "latitude": 49.006722,
+      "longitude": 8.431246
+    },
+    "evaNumber": "723632"
+  },
+  {
+    "groupMembers": [],
+    "names": {"DE": {"nameLong": "Poststraße, Karlsruhe"}},
+    "availableTransports": [
+      "CITY_TRAIN",
+      "TRAM"
+    ],
+    "position": {
+      "latitude": 48.9951692,
+      "longitude": 8.40352982
+    },
+    "evaNumber": "723869"
+  },
+  {
+    "groupMembers": [],
+    "names": {"DE": {"nameLong": "Europaplatz/Postgalerie (U), Karlsruhe"}},
+    "availableTransports": [
+      "CITY_TRAIN",
+      "TRAM"
+    ],
+    "position": {
+      "latitude": 49.00998,
+      "longitude": 8.394631
+    },
+    "evaNumber": "140060"
+  }
+]}
